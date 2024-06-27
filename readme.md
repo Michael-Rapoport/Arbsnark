@@ -80,3 +80,4 @@ This project is for educational purposes only. Trading cryptocurrencies carries 
 ## License
 
 This project is licensed under the MIT License  to Agitronics and Michael Rapoport
+if you make some money with this app (or even if you dont), please consider showing me some of that ETH love at 0x7b6Df61215C3DE2138Ee52Cc22cFa7eBbc9c7789
