@@ -9,16 +9,6 @@
       "web3_provider": "https://kovan.infura.io/v3/YOUR-PROJECT-ID",
       "aave_lending_pool_addresses_provider": "0x88757f2f99175387aB4C6a4b3067c77A695b0349",
       "verify": true
-    },
-    "polygon": {
-      "web3_provider": "https://polygon-mainnet.infura.io/v3/YOUR-PROJECT-ID",
-      "aave_lending_pool_addresses_provider": "0xd05e3E715d945B59290df0ae8eF85c1BdB684744",
-      "verify": true
-    },
-    "arbitrum": {
-      "web3_provider": "https://arbitrum-mainnet.infura.io/v3/YOUR-PROJECT-ID",
-      "aave_lending_pool_addresses_provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
-      "verify": true
     }
   },
   "wallets": {
@@ -27,7 +17,9 @@
   },
   "dex_routers": {
     "UniswapV2": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
-    "SushiSwap": "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F"
+    "SushiSwap": "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F",
+    "Balancer": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+    "Curve": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D"
   },
   "price_feeds": {
     "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
