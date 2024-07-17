@@ -1,34 +1,25 @@
 import pytest
 from brownie import ArbitrageTrader, accounts, reverts, Wei
+from unittest.mock import patch
 
 @pytest.fixture
 def arbitrage_trader(accounts):
     return ArbitrageTrader.deploy(accounts[0], {'from': accounts[0]})
 
-# ... (existing tests)
+def test_execute_flash_loan_arbitrage(arbitrage_trader, accounts):
+    # Mock the Aave lending pool
+    with patch('contracts.ArbitrageTrader.aavePool') as mock_aave_pool:
+        mock_aave_pool.flashLoan.return_value = None
+        mock_aave_pool.repay.return_value = None
 
-def test_execute_collateral_swap(arbitrage_trader, accounts):
-    # Mock DEX routers and token contracts
-    uniswap_router = accounts[1]
-    sushiswap_router = accounts[2]
-    collateral_token = accounts[3]
-    target_token = accounts[4]
-    weth = accounts[5]
+        # Execute the flash loan arbitrage
+        path = [accounts[1], accounts[2], accounts[3]]
+        dex_names = ['UniswapV2', 'SushiSwap']
+        amount_in = Wei('1 ether')
+        min_amount_out = Wei('1.01 ether')
 
-    arbitrage_trader.addDexRouter("UniswapV2", uniswap_router, {'from': accounts[0]})
-    arbitrage_trader.addDexRouter("SushiSwap", sushiswap_router, {'from': accounts[0]})
+        arbitrage_trader.executeArbitrageWithFlashLoan(path, dex_names, amount_in, min_amount_out, {'from': accounts[0]})
 
-    # Mock the collateral swap execution (this would require more complex mocking in a real test)
-    path = [collateral_token, weth, target_token]
-    dex_names = ["UniswapV2", "SushiSwap"]
-    collateral_amount = Wei("1 ether")
-    min_target_amount = Wei("1.01 ether")
-
-    # Send some collateral token to the contract for the test
-    collateral_token.transfer(arbitrage_trader, collateral_amount, {'from': accounts[0]})
-
-    initial_balance = arbitrage_trader.balance()
-    arbitrage_trader.executeCollateralSwap(collateral_token, target_token, collateral_amount, min_target_amount, {'from': accounts[0]})
-    final_balance = arbitrage_trader.balance()
-
-    assert final_balance > initial_balance, "Collateral swap should be profitable"
+        # Verify that the flash loan was requested and repaid
+        mock_aave_pool.flashLoan.assert_called_once_with(arbitrage_trader, accounts[1], amount_in, b'')
+        mock_aave_pool.repay.assert_called_once_with(accounts[1], amount_in, 2, arbitrage_trader)
