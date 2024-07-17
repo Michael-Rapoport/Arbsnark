@@ -1,4 +1,3 @@
-
 import asyncio
 import websockets
 import json
@@ -21,13 +20,21 @@ async def monitor_prices():
                 await asyncio.sleep(1)
 
 async def check_arbitrage_opportunity(price_data):
-    # Implement your arbitrage detection logic here
-    # This is a simplified example
-    if price_data['token_a_price'] / price_data['token_b_price'] > 1.02:
+    # Implement more advanced arbitrage detection logic
+    token_a_price = price_data['token_a_price']
+    token_b_price = price_data['token_b_price']
+    weth_price = price_data['weth_price']
+
+    # Calculate the potential profit margin
+    profit_margin = (token_a_price / token_b_price) / weth_price
+    
+    # Check if the profit margin exceeds the minimum threshold
+    min_profit_threshold = w3.from_wei(arbitrage_trader.minProfitThreshold(), 'ether')
+    if profit_margin > 1 + min_profit_threshold:
         path = [config['tokens']['token_a'], config['tokens']['token_b'], config['tokens']['weth']]
         dex_names = ['uniswap', 'sushiswap']
-        amount_in = Web3.toWei(0.1, 'ether')
-        min_amount_out = Web3.toWei(0.099, 'ether')
+        amount_in = w3.toWei(0.1, 'ether')
+        min_amount_out = w3.toWei(amount_in * (1 + min_profit_threshold), 'ether')
 
         # Execute the arbitrage
         tx = arbitrage_trader.executeArbitrage(
