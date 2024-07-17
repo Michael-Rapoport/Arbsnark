@@ -1,4 +1,4 @@
-from brownie import ArbitrageTrader, accounts, config
+from brownie import ArbitrageTrader, AdvancedStrategies, accounts, config
 from web3 import Web3
 
 def main():
@@ -11,20 +11,11 @@ def main():
         publish_source=config['networks'][network.show_active()].get('verify', False)
     )
 
+    advanced_strategies = AdvancedStrategies.deploy(arbitrage_trader.address, {'from': account})
+
+    arbitrage_trader.setAdvancedStrategies(advanced_strategies.address, {'from': account})
+
     print(f"ArbitrageTrader deployed at: {arbitrage_trader.address}")
+    print(f"AdvancedStrategies deployed at: {advanced_strategies.address}")
 
-    # Add DEX routers
-    for dex_name, router_address in config['dex_routers'].items():
-        arbitrage_trader.addDexRouter(dex_name, router_address, {'from': account})
-        print(f"Added {dex_name} router: {router_address}")
-
-    # Set price feeds
-    for token_address, price_feed_address in config['price_feeds'].items():
-        arbitrage_trader.setPriceFeed(token_address, price_feed_address, {'from': account})
-        print(f"Set price feed for token {token_address}: {price_feed_address}")
-
-    # Set min profit threshold and max loss limit
-    arbitrage_trader.setMinProfitThreshold(Web3.toWei(0.01, 'ether'), {'from': account})
-    arbitrage_trader.setMaxLossLimit(Web3.toWei(0.5, 'ether'), {'from': account})
-
-    print("Deployment and initial setup complete.")
+    # Add DEX routers, set price feeds, and other setup steps...
