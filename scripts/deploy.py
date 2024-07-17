@@ -3,14 +3,12 @@ from web3 import Web3
 
 def main():
     account = accounts.add(config['wallets']['from_key'])
-    network_name = network.show_active()
-    network_config = config['networks'][network_name]
-    aave_lending_pool_addresses_provider = network_config['aave_lending_pool_addresses_provider']
+    aave_lending_pool_addresses_provider = config['networks'][network.show_active()]['aave_lending_pool_addresses_provider']
 
     arbitrage_trader = ArbitrageTrader.deploy(
         aave_lending_pool_addresses_provider,
         {'from': account},
-        publish_source=network_config.get('verify', False)
+        publish_source=config['networks'][network.show_active()].get('verify', False)
     )
 
     print(f"ArbitrageTrader deployed at: {arbitrage_trader.address}")
