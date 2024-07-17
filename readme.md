@@ -23,8 +23,7 @@ This project implements an advanced arbitrage trading system on the Ethereum blo
 ## Installation
 
 1. Clone the repository:
-git clone https://github.com/your-username/advanced-arbitrage-trading-system.git cd advanced-arbitrage-trading-system
-
+git clone https://github.com/agitronics/Arbsnark.git 
 
 2. Install the required Python packages:
 pip install -r requirements.txt
