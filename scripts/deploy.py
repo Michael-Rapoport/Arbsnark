@@ -1,4 +1,3 @@
-
 from brownie import ArbitrageTrader, accounts, config
 from web3 import Web3
 
