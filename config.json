@@ -9,6 +9,16 @@
       "web3_provider": "https://kovan.infura.io/v3/YOUR-PROJECT-ID",
       "aave_lending_pool_addresses_provider": "0x88757f2f99175387aB4C6a4b3067c77A695b0349",
       "verify": true
+    },
+    "polygon": {
+      "web3_provider": "https://polygon-mainnet.infura.io/v3/YOUR-PROJECT-ID",
+      "aave_lending_pool_addresses_provider": "0xd05e3E715d945B59290df0ae8eF85c1BdB684744",
+      "verify": true
+    },
+    "arbitrum": {
+      "web3_provider": "https://arbitrum-mainnet.infura.io/v3/YOUR-PROJECT-ID",
+      "aave_lending_pool_addresses_provider": "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+      "verify": true
     }
   },
   "wallets": {
@@ -20,16 +30,14 @@
     "SushiSwap": "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F"
   },
   "price_feeds": {
-    "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419", 
+    "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2": "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
     "0x6B175474E89094C44Da98b954EedeAC495271d0F": "0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9",
-    "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
-    "0x0d4a11d5EEaaC28EC3F61d100dF4e3D1b5e54ba9": "0x0FCAa9c899EC5A91eBc3D5Dd869De833b06fB046"
+    "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48": "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6"
   },
   "tokens": {
     "weth": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
     "dai": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
-    "usdc": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-    "wbtc": "0x0d4a11d5EEaaC28EC3F61d100dF4e3D1b5e54ba9"
+    "usdc": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
   },
   "deployed_contracts": {
     "arbitrage_trader": "DEPLOYED_CONTRACT_ADDRESS_HERE"
