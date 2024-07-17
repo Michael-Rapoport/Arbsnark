@@ -1,4 +1,3 @@
-
 # Arbsnark
 
 This project implements an advanced arbitrage trading system on the Ethereum blockchain. It uses smart contracts to execute multi-hop trades across different decentralized exchanges (DEXs) and incorporates flash loans for capital-efficient arbitrage opportunities.
@@ -11,6 +10,9 @@ This project implements an advanced arbitrage trading system on the Ethereum blo
 - Advanced profit calculation considering DEX fees and slippage
 - Risk management with stop-loss mechanisms and maximum loss limits
 - Gas optimization for efficient trade execution
+- Automated execution of arbitrage opportunities based on price feeds
+- Ability to withdraw funds and tokens from the contract
+- Secure ownership and access control mechanisms
 
 ## Prerequisites
 
@@ -23,19 +25,25 @@ This project implements an advanced arbitrage trading system on the Ethereum blo
 ## Installation
 
 1. Clone the repository:
-git clone https://github.com/agitronics/Arbsnark.git 
+   ```
+   git clone https://github.com/agitronics/Arbsnark.git
+   ```
 
 2. Install the required Python packages:
-pip install -r requirements.txt
-
+   ```
+   pip install -r requirements.txt
+   ```
 
 3. Install Brownie:
-pip install eth-brownie
-
+   ```
+   pip install eth-brownie
+   ```
 
 4. Set up your `.env` file with your private key and Infura project ID:
-PRIVATE_KEY=your_private_key_here WEB3_INFURA_PROJECT_ID=your_infura_project_id_here
-
+   ```
+   PRIVATE_KEY=your_private_key_here
+   WEB3_INFURA_PROJECT_ID=your_infura_project_id_here
+   ```
 
 ## Configuration
 
@@ -46,24 +54,29 @@ PRIVATE_KEY=your_private_key_here WEB3_INFURA_PROJECT_ID=your_infura_project_id_
 ## Deployment
 
 1. Deploy the ArbitrageTrader contract:
-brownie run scripts/deploy.py --network mainnet
-
+   ```
+   brownie run scripts/deploy.py --network mainnet
+   ```
 
 2. Update the `config.json` file with the deployed contract address.
 
 ## Usage
 
 1. Start the price monitoring script:
-python scripts/monitor_prices.py
+   ```
+   python scripts/monitor_prices.py
+   ```
 
+   The script will continuously monitor prices and execute arbitrage trades when profitable opportunities are detected.
 
-2. The script will continuously monitor prices and execute arbitrage trades when profitable opportunities are detected.
+2. You can also manually execute arbitrage trades using the `executeArbitrage` function of the `ArbitrageTrader` contract.
 
 ## Testing
 
 Run the test suite using Brownie:
+```
 brownie test
-
+```
 
 ## Security Considerations
 
@@ -78,9 +91,9 @@ This project is for educational purposes only. Trading cryptocurrencies carries 
 
 ## License
 
-This project is licensed under the MIT License to Agitronics and Michael Rapoport, 2024. 
+This project is licensed under the MIT License to Agitronics and Michael Rapoport, 2024.
 
-If perhaps you make some money with this system (or even if you dont), please consider sending the author a tip to support further development efforts:
+If perhaps you make some money with this system (or even if you don't), please consider sending the author a tip to support further development efforts:
 
 ETH > 0x7b6Df61215C3DE2138Ee52Cc22cFa7eBbc9c7789
 BTC > 3Kz2rfM7E3nN8ovbMcggWMW7maQar7zhdW
