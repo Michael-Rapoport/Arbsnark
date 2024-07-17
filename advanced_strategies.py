@@ -8,6 +8,9 @@ class AdvancedStrategies:
     def mean_reversion_strategy(self, token_a, token_b, window_size=20):
         """
         Implement a mean reversion strategy to detect arbitrage opportunities.
+
+        The strategy monitors the prices of two tokens and executes an arbitrage trade
+        when the price ratio deviates significantly from the historical average.
         """
         price_history_a = []
         price_history_b = []
@@ -40,6 +43,9 @@ class AdvancedStrategies:
     def volatility_arbitrage(self, token_a, token_b, window_size=60):
         """
         Implement a volatility arbitrage strategy to detect and execute trades.
+
+        The strategy monitors the price volatility of two tokens and executes an arbitrage trade
+        when the volatility ratio exceeds a certain threshold.
         """
         price_history_a = []
         price_history_b = []

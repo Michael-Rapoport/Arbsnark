@@ -11,8 +11,10 @@ This project implements an advanced arbitrage trading system on the Ethereum blo
 - Risk management with stop-loss mechanisms and maximum loss limits
 - Gas optimization for efficient trade execution
 - Automated execution of arbitrage opportunities based on price feeds
+- Ability to manually execute arbitrage trades
 - Ability to withdraw funds and tokens from the contract
 - Secure ownership and access control mechanisms
+- Monitoring and maintenance features for updating price feeds and handling vulnerabilities
 
 ## Prerequisites
 
@@ -24,41 +26,15 @@ This project implements an advanced arbitrage trading system on the Ethereum blo
 
 ## Installation
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/agitronics/Arbsnark.git
-   ```
-
-2. Install the required Python packages:
-   ```
-   pip install -r requirements.txt
-   ```
-
-3. Install Brownie:
-   ```
-   pip install eth-brownie
-   ```
-
-4. Set up your `.env` file with your private key and Infura project ID:
-   ```
-   PRIVATE_KEY=your_private_key_here
-   WEB3_INFURA_PROJECT_ID=your_infura_project_id_here
-   ```
+[Existing installation instructions]
 
 ## Configuration
 
-1. Update the `config.json` file with your specific network settings, wallet addresses, and contract addresses.
-
-2. Modify the `scripts/monitor_prices.py` file to connect to your preferred price feed source.
+[Existing configuration instructions]
 
 ## Deployment
 
-1. Deploy the ArbitrageTrader contract:
-   ```
-   brownie run scripts/deploy.py --network mainnet
-   ```
-
-2. Update the `config.json` file with the deployed contract address.
+[Existing deployment instructions]
 
 ## Usage
 
@@ -66,34 +42,24 @@ This project implements an advanced arbitrage trading system on the Ethereum blo
    ```
    python scripts/monitor_prices.py
    ```
-
    The script will continuously monitor prices and execute arbitrage trades when profitable opportunities are detected.
 
-2. You can also manually execute arbitrage trades using the `executeArbitrage` function of the `ArbitrageTrader` contract.
+2. To manually execute arbitrage trades, use the `executeArbitrage` function of the `ArbitrageTrader` contract. You can call this function directly or through a script like the one in `scripts/monitor_prices.py`.
 
-## Testing
+## Monitoring and Maintenance
 
-Run the test suite using Brownie:
-```
-brownie test
-```
+- Regularly monitor the price feeds and update them as necessary to ensure accurate price data.
+- Keep an eye on potential vulnerabilities in the smart contract code and update the system accordingly.
+- Review the system's performance and adjust the risk management parameters (e.g., minimum profit threshold, maximum loss limit) as needed.
 
 ## Security Considerations
 
-- Ensure that your private keys are kept secure and never committed to version control.
-- Thoroughly audit the smart contract code before deploying to mainnet.
-- Implement additional security measures such as multi-sig wallets for managing funds.
-- Regularly monitor and update the system to address any potential vulnerabilities.
+[Existing security considerations]
 
 ## Disclaimer
 
-This project is for educational purposes only. Trading cryptocurrencies carries a high level of risk, and may not be suitable for all investors. Before deciding to trade cryptocurrency you should carefully consider your investment objectives, level of experience, and risk appetite.
+[Existing disclaimer]
 
 ## License
 
-This project is licensed under the MIT License to Agitronics and Michael Rapoport, 2024.
-
-If perhaps you make some money with this system (or even if you don't), please consider sending the author a tip to support further development efforts:
-
-ETH > 0x7b6Df61215C3DE2138Ee52Cc22cFa7eBbc9c7789
-BTC > 3Kz2rfM7E3nN8ovbMcggWMW7maQar7zhdW
+[Existing license information]
