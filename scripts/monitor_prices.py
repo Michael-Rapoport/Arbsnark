@@ -8,7 +8,7 @@ w3 = Web3(Web3.HTTPProvider(config['networks'][network.show_active()]['web3_prov
 arbitrage_trader = ArbitrageTrader.at(config['deployed_contracts']['arbitrage_trader'])
 
 async def monitor_prices():
-    uri = "wss://your-websocket-endpoint"
+    uri = "wss://api.coingecko.com/api/v3/simple/price?vs_currencies=usd"
     async with websockets.connect(uri) as websocket:
         while True:
             try:
@@ -22,8 +22,8 @@ async def monitor_prices():
 async def check_arbitrage_opportunity(price_data):
     # Implement your arbitrage detection logic here
     # This is a simplified example
-    if price_data['token_a_price'] / price_data['token_b_price'] > 1.02:
-        path = [config['tokens']['weth'], config['tokens']['token_a'], config['tokens']['token_b']]
+    if price_data['ethereum']['usd'] / price_data['dai']['usd'] > 1.02:
+        path = [config['tokens']['weth'], config['tokens']['dai']]
         dex_names = ['uniswap', 'sushiswap']
         amount_in = Web3.toWei(0.1, 'ether')
         min_amount_out = Web3.toWei(0.099, 'ether')
