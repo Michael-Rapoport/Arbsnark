@@ -13,7 +13,7 @@
   },
   "wallets": {
     "from_key": "YOUR_PRIVATE_KEY_HERE",
-    "from_address": "YOUR_ADDRESS_HERE"
+    "from_address": "0x7b6Df61215C3DE2138Ee52Cc22cFa7eBbc9c7789"
   },
   "dex_routers": {
     "UniswapV2": "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
